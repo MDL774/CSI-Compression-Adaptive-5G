@@ -1,0 +1,53 @@
+REPRODUCIBILITY MANIFEST
+=======================
+
+Projet : Adaptation du taux de compression du CSI selon les conditions
+         du canal dans les systèmes Massive MIMO 5G NR
+Auteur : LOMPO Abdrahamane
+Date   : 2026-08-24
+
+=== DONNÉES ===
+cdl_3gpp_data_clean.mat         : SHA256: [À CALCULER]
+seeds_config.mat                : SHA256: [À CALCULER]
+
+=== MODÈLES ===
+net_g4_final.mat                : SHA256: [À CALCULER]
+net_g8_final.mat                : SHA256: [À CALCULER]
+net_g16_final.mat               : SHA256: [À CALCULER]
+
+=== SCRIPTS ===
+01_generateCDL_3GPP_clean.m     : SHA256: [À CALCULER]
+02_build_models.m               : SHA256: [À CALCULER]
+03_train_csinet_pp.m            : SHA256: [À CALCULER]
+04_calibrate_policy.m           : SHA256: [À CALCULER]
+05_adaptive_policy.m            : SHA256: [À CALCULER]
+06_evaluate_adaptive_policy_v3_awgn.m : SHA256: [À CALCULER]
+07_measure_latency.m            : SHA256: [À CALCULER]
+08_plot_convergence_curves.m    : SHA256: [À CALCULER]
+
+=== RÉSULTATS ===
+adaptive_policy_v3_final.mat    : SHA256: [À CALCULER]
+decision_matrix.csv             : SHA256: [À CALCULER]
+nmse_table_awgn_v3.mat          : SHA256: [À CALCULER]
+
+=== PARAMÈTRES EXPÉRIMENTAUX ===
+Train       : 90000
+Validation  : 10000
+Test        : 20000
+SNR         : 0-30 dB
+Profils     : CDL-D (LOS), CDL-A (NLOS)
+Taux        : 1/4, 1/8, 1/16
+Mc          : 512, 256, 128
+Quantification : 8 bits
+SEED_MAIN   : 12345
+SEEDS_AWGN  : [1996335358, 679411330, 394962641, 439289854, 1219180216,
+               1278922511, 2071279159, 1402687135, 1608264758, 1403530610]
+
+=== POLITIQUE FINALE ===
+CDL-D (LOS) : g4 si SNR < 5 dB, g8 si 5 ≤ SNR < 15 dB, g16 si SNR ≥ 15 dB
+CDL-A (NLOS) : g4 si SNR < 20 dB, g8 si SNR ≥ 20 dB
+
+=== RÉSULTATS PRINCIPAUX ===
+Overhead adaptatif : 3206,14 bits
+NMSE adaptatif : -13,4826 dB
+Réduction d'overhead : 21,73%
