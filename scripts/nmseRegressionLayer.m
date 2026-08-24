@@ -1,11 +1,7 @@
 classdef nmseRegressionLayer < nnet.layer.RegressionLayer
     % ==========================================================
     % NMSE REGRESSION LAYER
-    %
-    % Loss :
-    %   L = mean_b [ ||Y_b-T_b||^2 / (||T_b||^2 + eps) ]
-    %
-    % Cette couche minimise directement le NMSE normalise.
+    % Minimise directement la NMSE moyenne sur le batch
     % ==========================================================
 
     methods
@@ -30,11 +26,11 @@ classdef nmseRegressionLayer < nnet.layer.RegressionLayer
             % Puissance du signal cible par echantillon
             targetPower = sum(T.^2, [1 2 3]);
 
-            % NMSE individuel
+            % NMSE par echantillon
             nmsePerSample = ...
                 errorPower ./ (targetPower + epsVal);
 
-            % Moyenne sur le batch
+            % Moyenne de la NMSE sur le batch
             loss = mean(nmsePerSample);
 
         end
@@ -50,22 +46,13 @@ classdef nmseRegressionLayer < nnet.layer.RegressionLayer
             % Puissance du signal cible par echantillon
             targetPower = sum(T.^2, [1 2 3]);
 
-            % Gradient :
-            %
-            % dL/dY =
-            % 2(Y-T) / (targetPower + eps) / B
-
-            denominator = ...
-                targetPower + epsVal;
-
-            denominator = reshape( ...
-                denominator, ...
-                1, 1, 1, B);
-
+            % Gradient de la NMSE moyenne
             dLdY = ...
-                (2 * (Y - T) ./ denominator) / B;
+                2 .* (Y - T) ./ ...
+                (targetPower + epsVal) ./ B;
 
         end
 
     end
+
 end
