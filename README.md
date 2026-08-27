@@ -1,34 +1,31 @@
-# Adaptation du taux de compression du CSI selon les conditions
-# du canal dans les systèmes Massive MIMO 5G
+# Adaptation du taux de compression du CSI selon les conditions du canal dans les systèmes Massive MIMO 5G
 
 ## Auteur
-LOMPO Abdrahamane
+**LOMPO Abdrahamane**
 
 ## Encadrement
-- Dr Désiré GUEL (Encadrant)
-- Dr Boureima ZERBO (Superviseur)
+- **Dr Désiré GUEL** (Encadrant)
+- **Dr Boureima ZERBO** (Superviseur)
 
 ## Université
-Université Joseph KI-ZERBO (UJKZ)
+**Université Joseph KI-ZERBO (UJKZ)**
 
 ## Description
-Ce dépôt contient l'ensemble des scripts, modèles, données et résultats
-associés au mémoire de Master 2 intitulé :
-"Adaptation du taux de compression du CSI selon les conditions du canal
-dans les systèmes Massive MIMO 5G"
+Ce dépôt contient l'ensemble des scripts, modèles, données et résultats associés au mémoire de Master 2 intitulé :  
+*"Adaptation du taux de compression du CSI selon les conditions du canal dans les systèmes Massive MIMO 5G"*
 
 ## Structure du dépôt
-```
 projet_CSI_adaptatif/
-├── data/          # Jeux de données
-├── models/        # Modèles entraînés
-├── scripts/       # Scripts MATLAB
-├── results/       # Résultats expérimentaux
-│   └── figures/   # Figures générées
-├── checkpoints/   # Points de contrôle d'entraînement
+├── data/ # Jeux de données
+├── models/ # Modèles entraînés
+├── scripts/ # Scripts MATLAB
+├── results/ # Résultats expérimentaux
+│ └── figures/ # Figures générées
+├── checkpoints/ # Points de contrôle d'entraînement
 ├── README.md
 └── REPRODUCIBILITY_MANIFEST.txt
-```
+
+text
 
 ## Prérequis
 - MATLAB R2024a ou supérieur
@@ -46,9 +43,15 @@ projet_CSI_adaptatif/
 6. Exécuter `06_evaluate_adaptive_policy_v3_awgn.m` pour l'évaluation finale
 
 ## Résultats principaux
-- Overhead moyen adaptatif : **3206,14 bits**
-- NMSE adaptatif : **-13,4826 dB**
-- Réduction d'overhead : **21,73%**
+
+| Métrique | Valeur |
+|----------|--------|
+| Overhead moyen adaptatif | **2647,45 bits** |
+| NMSE adaptatif | **-12,58 dB** |
+| Réduction d'overhead | **35,37 %** |
+| Nombre d'échantillons d'entraînement | 90 000 |
+| Nombre d'échantillons de validation | 10 000 |
+| Nombre d'échantillons de test | 20 000 |
 
 ## Licence
 Ce projet est distribué sous licence MIT.
